@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "435750014803",
+    "project_id": "mibarbero-df497",
+    "storage_bucket": "mibarbero-df497.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:435750014803:android:17b20a321ce8f183089ba6",
+        "android_client_info": {
+          "package_name": "com.example.mibarberojp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCO6cX-KaRscE_rG4GM2fOLyBFAQ39PdRg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
