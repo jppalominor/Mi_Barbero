@@ -4,16 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.example.mibarberojp.data.Cita;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
 
@@ -23,6 +29,8 @@ public class Agendar extends AppCompatActivity {
 
     private Button btn_calendario;
     private String barber;
+
+    private EditText cliente;
 
     private Spinner spinner;
 
@@ -42,6 +50,7 @@ public class Agendar extends AppCompatActivity {
         tv = findViewById(R.id.txt_fecha);
         tvHora = findViewById(R.id.txt_hora);
         btn_calendario = findViewById(R.id.btn_fecha);
+        cliente = findViewById(R.id.txt_cliente);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(Agendar.this,R.array.barberos,
                 android.R.layout.simple_spinner_item);
@@ -102,7 +111,18 @@ public class Agendar extends AppCompatActivity {
         btn_crearcita.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: Crear cita en la bd
+                String fechacita, horacita, clientecita;
+
+                fechacita = tv.getText().toString();
+                horacita = tvHora.getText().toString();
+                clientecita = cliente.getText().toString();
+
+                FirebaseDatabase db = FirebaseDatabase.getInstance();
+                DatabaseReference dbr = db.getReference("Citas");
+                String llave = dbr.push().getKey();
+                dbr.child(llave).setValue(new Cita(barber, fechacita, horacita, clientecita));
+
+                startActivity(new Intent(Agendar.this, Agendar.class));
             }
         });
     }
