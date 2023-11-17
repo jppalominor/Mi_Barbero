@@ -5,15 +5,15 @@ plugins {
 }
 
 android {
-    namespace = "com.example.mibarberojp"
+    namespace = "com.jpsapps.mibarberojp"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.mibarberojp"
-        minSdk = 33
+        applicationId = "com.jpsapps.mibarberojp"
+        minSdk = 29
         targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "2.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
